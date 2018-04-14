@@ -14,23 +14,27 @@
 
 
 
-<table class="table">
+<!--<table class="table">-->
 
-    <tr>
-        <th>Room</th>
-        <th>Items</th>
-        <th>Description</th>
-        <th>Model/I.D. No.</th>
-        <th>Purchase Date</th>
-        <th>Original Value</th>
-        <th>Current Value</th>
-    </tr>
+    <!--<tr>-->
+        <!--<th>Room</th>-->
+        <!--<th>Items</th>-->
+        <!--<th>Description</th>-->
+        <!--<th>Model/I.D. No.</th>-->
+        <!--<th>Purchase Date</th>-->
+        <!--<th>Original Value</th>-->
+        <!--<th>Current Value</th>-->
+    <!--</tr>-->
 
-    <tr th:each = "inventory : ${inventories}" >
-        <td th:text = "${inventory.key}"></td>
-        <td th:text = "${inventory.value}"></td>
-    </tr>
-</table>
+    <ul>
+        <li th:each="inventory : ${inventories}" th:text="${inventory}"></li>
+    </ul>
+
+    <!--<tr th:each = "inventory : ${inventories}" >-->
+        <!--<td th:text = "${inventory.key}"></td>-->
+        <!--<td th:text = "${inventory.value}"></td>-->
+    <!--</tr>-->
+<!--</table>-->
 
     </div>
 
