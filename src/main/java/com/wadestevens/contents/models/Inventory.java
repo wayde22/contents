@@ -11,8 +11,11 @@ public class Inventory {
     private Date purchaseDate;
     private double purchaseValue;
     private double currentValue;
+    private int inventoryId;
+    private static int nextId = 1;
 
     public Inventory(String room, String item, String description, String model, Date purchaseDate, double purchaseValue, double currentValue) {
+        this();
         this.room = room;
         this.item = item;
         this.description = description;
@@ -23,7 +26,8 @@ public class Inventory {
     }
 
     public Inventory(){
-
+        inventoryId = nextId;
+        nextId++;
     }
 
     public String getRoom() {
@@ -80,5 +84,21 @@ public class Inventory {
 
     public void setCurrentValue(double currentValue) {
         this.currentValue = currentValue;
+    }
+
+    public int getInventoryId() {
+        return inventoryId;
+    }
+
+    public void setInventoryId(int inventoryId) {
+        this.inventoryId = inventoryId;
+    }
+
+    public static int getNextId() {
+        return nextId;
+    }
+
+    public static void setNextId(int nextId) {
+        Inventory.nextId = nextId;
     }
 }

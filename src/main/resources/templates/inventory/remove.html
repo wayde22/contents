@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace = "fragments :: head"></head>
-<body class="container">
+<body>
 
 <nav class="navigation" th:replace = "fragments :: navigation"></nav>
+
+<div class="container">
 
 <h1 th:text = "${title}">Inventory</h1>
 
 <form method="post">
 
     <div th:each="inventory : ${inventories}" class="checkbox">
-        <input type="checkbox" name="inventory" th:value="${inventory.name}" th:id="${inventory.name}" />
-        <label th:for="${inventory.name}" th:text="${inventory.name}"></label>
+        <input type="checkbox" name="inventoryIds" th:value="${inventory.inventoryId}" th:id="${inventory.inventoryId}" />
+        <label th:for="${inventory.inventoryId}" th:text="${inventory.name}"></label>
         <br />
     </div>
 
     <input type="submit" value="Remove Inventory" />
-</form>
 
+</form>
+</div>
 </body>
 </html>
