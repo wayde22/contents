@@ -1,20 +1,43 @@
 package com.wadestevens.contents.models;
 
-import java.util.Date;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.time.LocalDate;
 
 public class Inventory {
 
+    @NotNull
+    @Size(min=3, max=30)
     private String room;
+
+    @NotNull
+    @Size(min=3, max=30)
     private String item;
+
+    @NotNull
+    @Size(min=3, max=30)
     private String description;
+
+    @NotNull
+    @Size(min=3, max=30)
     private String model;
-    private Date purchaseDate;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate purchaseDate;
+
+
     private double purchaseValue;
+
+
     private double currentValue;
+
+
     private int inventoryId;
     private static int nextId = 1;
 
-    public Inventory(String room, String item, String description, String model, Date purchaseDate, double purchaseValue, double currentValue) {
+    public Inventory(String room, String item, String description, String model, LocalDate purchaseDate, double purchaseValue, double currentValue) {
         this();
         this.room = room;
         this.item = item;
@@ -62,11 +85,11 @@ public class Inventory {
         this.model = model;
     }
 
-    public Date getPurchaseDate() {
+    public LocalDate getPurchaseDate() {
         return purchaseDate;
     }
 
-    public void setPurchaseDate(Date purchaseDate) {
+    public void setPurchaseDate(LocalDate purchaseDate) {
         this.purchaseDate = purchaseDate;
     }
 

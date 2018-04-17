@@ -10,34 +10,41 @@
 
 <h1 th:text = "${title}">Add Inventory</h1>
 
-<form method = "post" style="max-width:600px;">
+<form method = "post" style="max-width:600px;" th:object="${inventory}">
     <div class = "form-group">
-        <label for="room-field">Room</label>
-        <input class="form-control" id="room-field" type="text" name="Room" />
+        <label th:for="room">Room</label>
+        <input class="form-control" th:field="*{room}" />
+        <span th:errors="*{room}" class="error"></span>
     </div>
     <div class = "form-group">
-        <label for="item-field">Item</label>
-        <input class="form-control" id="item-field" type="text" name="Item" />
+        <label th:for="item">Item</label>
+        <input class="form-control" th:field="*{item}" />
+        <span th:errors="*{item}" class="error"></span>
     </div>
     <div class = "form-group">
-        <label for="description-field">Description</label>
-        <input class="form-control" id="description-field" type="text" name="Description" />
+        <label th:for="description">Description</label>
+        <input class="form-control" th:field="*{description}" />
+        <span th:errors="*{description}" class="error"></span>
     </div>
     <div class = "form-group">
-        <label for="model-field">Model</label>
-        <input class="form-control" id="model-field" type="text" name="Model" />
+        <label th:for="model">Model</label>
+        <input class="form-control" th:field="*{model}" />
+        <span th:errors="*{model}" class="error"></span>
     </div>
     <div class = "form-group">
-        <label for="purchaseDate-field">Purchase Date</label>
-        <input class="form-control" id="purchaseDate-field" type="text" name="PurchaseDate" />
+        <label th:for="purchaseDate">Purchase Date</label>
+        <input class="form-control" th:field="*{purchaseDate}" />
+        <span th:errors="*{purchaseDate}" class="error"></span>
     </div>
     <div class = "form-group">
-        <label for="purchaseValue-field">Purchase Value</label>
-        <input class="form-control" id="purchaseValue-field" type="text" name="PurchaseValue" />
+        <label th:for="purchaseValue">Purchase Value</label>
+        <input class="form-control" th:field="*{purchaseValue}" />
+        <span th:errors="*{purchaseValue}" class="error"></span>
     </div>
     <div class = "form-group">
-        <label for="currentValue-field">Current Value</label>
-        <input class="form-control" id="currentValue-field" type="text" name="CurrentValue" />
+        <label th:for="currentValue">Current Value</label>
+        <input class="form-control" th:field="*{currentValue}" />
+        <span th:errors="*{currentValue}" class="error"></span>
     </div>
 
     <input type="submit" value="Add Inventory" />
