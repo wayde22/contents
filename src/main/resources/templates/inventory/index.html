@@ -14,27 +14,30 @@
 
 
 
-<!--<table class="table">-->
+<table class="table">
 
-    <!--<tr>-->
-        <!--<th>Room</th>-->
-        <!--<th>Items</th>-->
-        <!--<th>Description</th>-->
-        <!--<th>Model/I.D. No.</th>-->
-        <!--<th>Purchase Date</th>-->
-        <!--<th>Original Value</th>-->
-        <!--<th>Current Value</th>-->
-    <!--</tr>-->
+    <tr>
+        <th>Room</th>
+        <th>Items</th>
+        <th>Description</th>
+        <th>Model/I.D. No.</th>
+        <th>Purchase Date</th>
+        <th>Original Value</th>
+        <th>Current Value</th>
+    </tr>
 
-    <ul>
-        <li th:each="inventory : ${inventories}" th:text="${inventory}"></li>
-    </ul>
+    <!--Needing to add links to each so that you can visit each item.-->
 
-    <!--<tr th:each = "inventory : ${inventories}" >-->
-        <!--<td th:text = "${inventory.key}"></td>-->
-        <!--<td th:text = "${inventory.value}"></td>-->
-    <!--</tr>-->
-<!--</table>-->
+    <tr th:each = "inventory : ${inventories}" >
+        <td th:text = "${inventory.Room}"></td>
+        <td th:text = "${inventory.Item}"></td>
+        <td th:text = "${inventory.description}"></td>
+        <td th:text = "${inventory.model}"></td>
+        <td th:text = "${inventory.purchaseDate}"></td> <!--Needing to change the date format in the index view.-->
+        <td th:text = "${inventory.purchaseValue}"></td>
+        <td th:text = "${inventory.currentValue}"></td>
+    </tr>
+</table>
 
     </div>
 

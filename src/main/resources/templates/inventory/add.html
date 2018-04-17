@@ -10,9 +10,38 @@
 
 <h1 th:text = "${title}">Add Inventory</h1>
 
-<form method = "post">
-    <input type="text" name="inventoryName" />
+<form method = "post" style="max-with:600px;">
+    <div class = "form-group">
+        <label for="room-field">Room</label>
+        <input class="form-control" id="room-field" type="text" name="inventoryRoom" />
+    </div>
+    <div class = "form-group">
+        <label for="item-field">Item</label>
+        <input class="form-control" id="item-field" type="text" name="inventoryItem" />
+    </div>
+    <div class = "form-group">
+        <label for="description-field">Description</label>
+        <input class="form-control" id="description-field" type="text" name="inventoryDescription" />
+    </div>
+    <div class = "form-group">
+        <label for="model-field">Model</label>
+        <input class="form-control" id="model-field" type="text" name="inventoryModel" />
+    </div>
+    <div class = "form-group">
+        <label for="purchaseDate-field">Purchase Date</label>
+        <input class="form-control" id="purchaseDate-field" type="text" name="inventoryPurchaseDate" />
+    </div>
+    <div class = "form-group">
+        <label for="purchaseValue-field">Purchase Value</label>
+        <input class="form-control" id="purchaseValue-field" type="text" name="inventoryPurchaseValue" />
+    </div>
+    <div class = "form-group">
+        <label for="currentValue-field">Current Value</label>
+        <input class="form-control" id="currentValue-field" type="text" name="inventoryCurrentValue" />
+    </div>
+
     <input type="submit" value="Add Inventory" />
+
 </form>
 
 
