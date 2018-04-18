@@ -11,15 +11,17 @@
 
 <form method="post">
 
-    <div th:each="inventory : ${inventories}" class="checkbox">
-        <input type="checkbox" name="inventoryIds" th:value="${inventory.inventoryId}" th:id="${inventory.inventoryId}" />
-        <label th:for="${inventory.inventoryId}" th:text="${inventory.name}"></label>
+    <div th:each="inventory : ${inventories}" class="checkbox" >
+        <input type="checkbox" name="inventoryIds" th:value="${inventory.id}" th:id="${inventory.id}" />
+        <label th:for="${inventory.id}" th:text="${inventory.item}"></label>
         <br />
     </div>
-
-    <input type="submit" value="Remove Inventory" />
+        <input type="submit" value="Remove Inventory" />
 
 </form>
+
+
+
 </div>
 </body>
 </html>

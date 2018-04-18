@@ -1,19 +1,25 @@
 package com.wadestevens.contents.models;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.time.LocalDate;
+import java.util.Date;
 
+@Entity
 public class Inventory {
+
+    @Id
+    @GeneratedValue
+    private int id;
 
     @NotNull
     @Size(min=3, max=30)
     private String room;
 
     @NotNull
-    @Size(min=3, max=30)
+    @Size(min=3, message = "Item must not be empty")
     private String item;
 
     @NotNull
@@ -24,8 +30,8 @@ public class Inventory {
     @Size(min=3, max=30)
     private String model;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private LocalDate purchaseDate;
+
+    private Date purchaseDate;
 
 
     private double purchaseValue;
@@ -34,11 +40,7 @@ public class Inventory {
     private double currentValue;
 
 
-    private int inventoryId;
-    private static int nextId = 1;
-
-    public Inventory(String room, String item, String description, String model, LocalDate purchaseDate, double purchaseValue, double currentValue) {
-        this();
+    public Inventory(String room, String item, String description, String model, Date purchaseDate, double purchaseValue, double currentValue) {
         this.room = room;
         this.item = item;
         this.description = description;
@@ -48,9 +50,10 @@ public class Inventory {
         this.currentValue = currentValue;
     }
 
-    public Inventory(){
-        inventoryId = nextId;
-        nextId++;
+    public Inventory(){ }
+
+    public int getId() {
+        return id;
     }
 
     public String getRoom() {
@@ -85,11 +88,11 @@ public class Inventory {
         this.model = model;
     }
 
-    public LocalDate getPurchaseDate() {
+    public Date getPurchaseDate() {
         return purchaseDate;
     }
 
-    public void setPurchaseDate(LocalDate purchaseDate) {
+    public void setPurchaseDate(Date purchaseDate) {
         this.purchaseDate = purchaseDate;
     }
 
@@ -109,19 +112,4 @@ public class Inventory {
         this.currentValue = currentValue;
     }
 
-    public int getInventoryId() {
-        return inventoryId;
-    }
-
-    public void setInventoryId(int inventoryId) {
-        this.inventoryId = inventoryId;
-    }
-
-    public static int getNextId() {
-        return nextId;
-    }
-
-    public static void setNextId(int nextId) {
-        Inventory.nextId = nextId;
-    }
 }
