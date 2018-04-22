@@ -31,10 +31,11 @@
         <input class="form-control" th:field="*{model}" />
         <span th:errors="*{model}" class="error"></span>
     </div>
-    <div class = "form-group">
+    <div class = "form-group" data-provide="datepicker" data-date-format="mm-dd-yyyy">
         <label th:for="purchaseDate">Purchase Date</label>
-        <input class="form-control" th:field="*{purchaseDate}" />
-        <span th:errors="*{purchaseDate}" class="error"></span>
+        <!--<input class="form-control" th:field="*{purchaseDate}" />-->
+        <!--<span th:errors="*{purchaseDate}" class="error"></span>-->
+        <input type="date" th:field="*{purchaseDate}" class="input-group-date"/>
     </div>
     <div class = "form-group">
         <label th:for="purchaseValue">Purchase Value</label>

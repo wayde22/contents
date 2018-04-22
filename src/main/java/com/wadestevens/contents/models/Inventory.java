@@ -1,5 +1,7 @@
 package com.wadestevens.contents.models;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -19,20 +21,20 @@ public class Inventory {
     private String room;
 
     @NotNull
-    @Size(min=3, message = "Item must not be empty")
+    @Size(min=2, message = "Item must not be empty")
     private String item;
 
     @NotNull
-    @Size(min=3, max=30)
+    @Size(min=3, message="Description must not be empty")
     private String description;
 
     @NotNull
     @Size(min=3, max=30)
     private String model;
 
-//    @NotNull
+    @NotNull
 //    @Size(min=8, message="Please enter a valid date")
-//    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date purchaseDate;
 
 

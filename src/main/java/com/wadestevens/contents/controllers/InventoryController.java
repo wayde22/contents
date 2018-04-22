@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
 
-//import com.wadestevens.contents.models.data.InventoryDao;
 
 @Controller
 @RequestMapping("inventory")
@@ -25,7 +24,7 @@ public class InventoryController {
     @RequestMapping(value = "")
     public String index(Model model) {
 
-//        model.addAttribute("inventories", InventoryDao.findAll());
+        //  The inventoryDao.findAll gathers all that is in the database and displays them.
         model.addAttribute("inventories", inventoryDao.findAll());
         model.addAttribute("title", "Inventory List");
 
@@ -35,6 +34,7 @@ public class InventoryController {
     @RequestMapping(value = "add", method = RequestMethod.GET)
     public String displayAddInventoryForm(Model model){
 
+        // The new Inventory gathers all the fields as an object and passes it to *{inventory}.
         model.addAttribute("title", "Add Inventory");
         model.addAttribute(new Inventory());
 
@@ -50,7 +50,7 @@ public class InventoryController {
 
             return "inventory/add";
         }
-
+        // This retrieves all the data passed back from the Inventory newInventory and stores into inventoryDao.
         inventoryDao.save(newInventory);
 
         return "redirect:";
@@ -58,6 +58,8 @@ public class InventoryController {
 
     @RequestMapping(value= "remove", method = RequestMethod.GET)
     public String displayRemoveInventoryForm(Model model) {
+
+        // Retrieves all the data from database and displays them in the remove view for deletion.
         model.addAttribute("title", "Remove Item");
         model.addAttribute("inventories", inventoryDao.findAll());
         return "inventory/remove";
@@ -66,6 +68,7 @@ public class InventoryController {
     @RequestMapping(value = "remove", method = RequestMethod.POST)
     public String processRemoveInventoryForm(@RequestParam int[] inventoryIds ) {
 
+        // This sifts out the marked items and deletes them from the data base inventory.
         for (int inventoryId : inventoryIds) {
             inventoryDao.delete(inventoryId);
         }

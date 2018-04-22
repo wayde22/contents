@@ -29,7 +29,7 @@
     <!--Needing to add links to each so that you can visit each item.-->
 
     <tr th:each = "inventory : ${inventories}" >
-        <td th:text = "${inventory.Room}"></td>
+        <td><a href="#" th:text = "${inventory.Room}"></a></td>
         <td th:text = "${inventory.Item}"></td>
         <td th:text = "${inventory.description}"></td>
         <td th:text = "${inventory.model}"></td>
