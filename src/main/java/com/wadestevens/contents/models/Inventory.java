@@ -30,7 +30,9 @@ public class Inventory {
     @Size(min=3, max=30)
     private String model;
 
-
+//    @NotNull
+//    @Size(min=8, message="Please enter a valid date")
+//    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date purchaseDate;
 
 
