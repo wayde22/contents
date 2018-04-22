@@ -34,8 +34,8 @@
         <td th:text = "${inventory.description}"></td>
         <td th:text = "${inventory.model}"></td>
         <td th:text = "${inventory.purchaseDate}"></td> <!--Needing to change the date format in the index view.-->
-        <td th:text = "${inventory.purchaseValue}"></td>
-        <td th:text = "${inventory.currentValue}"></td>
+        <td>$ <span th:text="${#numbers.formatDecimal(inventory.purchaseValue, 0, 'COMMA', 2, 'POINT')}">10.00</span></td>
+        <td>$ <span th:text="${#numbers.formatDecimal(inventory.currentValue, 0, 'COMMA', 2, 'POINT')}">10.00</span></td>
     </tr>
 </table>
 
