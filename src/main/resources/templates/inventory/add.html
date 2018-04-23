@@ -11,6 +11,14 @@
 <h1 th:text = "${title}">Add Inventory</h1>
 
 <form method = "post" style="max-width:600px;" th:object="${inventory}">
+    <!--<div class="form-group">-->
+        <!--<label th:for="roomId"><a href="/room/add/" title="Add Rooms">Room</a></label>-->
+        <!--<select name="roomId" id="roomId">-->
+            <!--<option th:each="room : ${rooms}"-->
+                    <!--th:text="${room.name}"-->
+                    <!--th:value="${room.id}"></option>-->
+        <!--</select>-->
+    <!--</div>-->
     <div class = "form-group">
         <label th:for="room">Room</label>
         <input placeholder="Living room" class="form-control" th:field="*{room}" />
@@ -48,7 +56,7 @@
         <span th:errors="*{currentValue}" class="error"></span>
     </div>
 
-    <input type="submit" value="Add Inventory" />
+    <input class="btn btn-success" type="submit" value="Add Inventory" />
 
 </form>
 

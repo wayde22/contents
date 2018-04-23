@@ -29,8 +29,8 @@
     <!--Needing to add links to each so that you can visit each item.-->
 
     <tr th:each = "inventory : ${inventories}" >
-        <td><a href="#" th:text = "${inventory.Room}"></a></td>
-        <td th:text = "${inventory.Item}"></td>
+        <td><a href="#" th:text = "${inventory.room}"></a></td>
+        <td th:text = "${inventory.item}"></td>
         <td th:text = "${inventory.description}"></td>
         <td th:text = "${inventory.model}"></td>
         <td th:text="${#dates.format(inventory.purchaseDate, 'MMM-dd-yyyy')}"></td>

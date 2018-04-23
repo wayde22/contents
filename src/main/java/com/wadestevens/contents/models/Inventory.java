@@ -17,7 +17,7 @@ public class Inventory {
     private int id;
 
     @NotNull
-    @Size(min=3, max=30)
+    @Size(min=2, max=15)
     private String room;
 
     @NotNull
@@ -37,11 +37,10 @@ public class Inventory {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date purchaseDate;
 
-
     private double purchaseValue;
 
-
     private double currentValue;
+
 
 
     public Inventory(String room, String item, String description, String model, Date purchaseDate, double purchaseValue, double currentValue) {
