@@ -41,6 +41,8 @@ public class Inventory {
 
     private double currentValue;
 
+//    private String image;
+
 
 
     public Inventory(String room, String item, String description, String model, Date purchaseDate, double purchaseValue, double currentValue) {
