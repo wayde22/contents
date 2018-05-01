@@ -2,9 +2,7 @@ package com.wadestevens.contents.models;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
@@ -41,11 +39,12 @@ public class Inventory {
 
     private double currentValue;
 
-//    private String image;
+//    @Lob
+//    @Column(name="image")
+//    private byte[] image;
 
 
-
-    public Inventory(String room, String item, String description, String model, Date purchaseDate, double purchaseValue, double currentValue) {
+    public Inventory(String room, String item, String description, String model, Date purchaseDate, double purchaseValue, double currentValue, byte[] image) {
         this.room = room;
         this.item = item;
         this.description = description;
@@ -53,7 +52,9 @@ public class Inventory {
         this.purchaseDate = purchaseDate;
         this.purchaseValue = purchaseValue;
         this.currentValue = currentValue;
+//        this.image = image;
     }
+
 
     public Inventory(){ }
 
@@ -116,5 +117,13 @@ public class Inventory {
     public void setCurrentValue(double currentValue) {
         this.currentValue = currentValue;
     }
+
+//    public byte[] getImage() {
+//        return image;
+//    }
+//
+//    public void setImage(byte[] image) {
+//        this.image = image;
+//    }
 
 }

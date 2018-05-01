@@ -3,6 +3,7 @@ package com.wadestevens.contents.controllers;
 import com.wadestevens.contents.models.Inventory;
 import com.wadestevens.contents.models.data.InventoryDao;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -21,6 +22,7 @@ public class InventoryController {
     @Autowired
     private InventoryDao inventoryDao;
 
+    @Secured({USER, ADMIN})
     @RequestMapping(value = "")
     public String index(Model model) {
 
@@ -75,6 +77,16 @@ public class InventoryController {
 
         return "redirect:";
     }
+
+//    @RequestMapping(value = "/login", method = RequestMethod.GET)
+//    public String loginGet(Model model) {
+//
+//        model.addAttribute("username", "Login");
+//        model.addAttribute("password", "Log In");
+//        model.addAttribute("code", null);
+//
+//        return "redirect:";
+//    }
 
 }
 
